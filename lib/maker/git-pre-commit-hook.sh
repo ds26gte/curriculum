@@ -11,13 +11,19 @@ JQ=$(which jq)
 for f in $(git diff --name-only --staged); do
   fb=$(basename $f)
   if test ${fb#*.} = adoc; then
-    d=$(dirname $f)
-    proglangfile=$d/proglang.txt
-    test -f $proglangfile || continue
-    test $(grep -c . $proglangfile) -gt 1 || continue
-    test $(git -c diff.tool=vimdiff diff --staged -- $f|grep '^+'|wc -c) -lt $minchars && continue
-    git diff --staged -- $f|grep '^+'|grep -q @ifproglang && continue
-    echo WARNING: $f did not have any @ifproglang\'s
+    for doit in justonce; do
+      d=$(dirname $f)
+      proglangfile=$d/proglang.txt
+      test -f $proglangfile || continue
+      test $(grep -c . $proglangfile) -gt 1 || continue
+      test $(git -c diff.tool=vimdiff diff --staged -- $f|grep '^+'|wc -c) -lt $minchars && continue
+      git diff --staged -- $f|grep '^+'|grep -q @ifproglang && continue
+      echo WARNING: $f did not have any @ifproglang\'s
+    done
+
+    if git diff --staged -- $f|aspell list|grep -q .; then
+      echo WARNING: $f may have spelling errors
+    fi
 
   elif test ${fb#*.} = json; then
     test -z "$JQ" && continue
