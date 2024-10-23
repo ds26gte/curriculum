@@ -3,7 +3,7 @@
 
 = READ ME
 
-We describe here kolor  the directories and files in the `curriculum`
+We describe here boguse  the directories and files in the `curriculum`
 directory, and how to use the programs provided.
 
 For a generated document tree, please see
