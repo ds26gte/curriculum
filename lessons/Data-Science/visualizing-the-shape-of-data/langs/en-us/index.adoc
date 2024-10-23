@@ -2,6 +2,40 @@
 
 @description{Students explore the concept of "shape", using histograms to determine whether a dataset has skewness, and what the direction of the skewness means. They apply this knowledge to the Animals Dataset, and then to their own.}
 
+added bogus line
+added bogus line
+added bogus line
+added bogus line
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+viverra sit amet massa a cursus. Proin in dolor molestie,
+faucibus tellus pulvinar, posuere dolor. Donec volutpat elit
+lectus, sit amet imperdiet metus ullamcorper vel. Nam bibendum
+quis urna a dignissim. Donec condimentum convallis lectus
+ut fringilla. Sed lacus magna, pellentesque nec justo eget,
+mollis ornare velit. Maecenas faucibus aliquam sem.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+viverra sit amet massa a cursus. Proin in dolor molestie,
+faucibus tellus pulvinar, posuere dolor. Donec volutpat elit
+lectus, sit amet imperdiet metus ullamcorper vel. Nam bibendum
+quis urna a dignissim. Donec condimentum convallis lectus
+ut fringilla. Sed lacus magna, pellentesque nec justo eget,
+mollis ornare velit. Maecenas faucibus aliquam sem.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+viverra sit amet massa a cursus. Proin in dolor molestie,
+faucibus tellus pulvinar, posuere dolor. Donec volutpat elit
+lectus, sit amet imperdiet metus ullamcorper vel. Nam bibendum
+quis urna a dignissim. Donec condimentum convallis lectus
+ut fringilla. Sed lacus magna, pellentesque nec justo eget,
+mollis ornare velit. Maecenas faucibus aliquam sem.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+viverra sit amet massa a cursus. Proin in dolor molestie,
+faucibus tellus pulvinar, posuere dolor. Donec volutpat elit
+lectus, sit amet imperdiet metus ullamcorper vel. Nam bibendum
+quis urna a dignissim. Donec condimentum convallis lectus
+ut fringilla. Sed lacus magna, pellentesque nec justo eget,
+mollis ornare velit. Maecenas faucibus aliquam sem.
+
+
 @lesson-prereqs{histograms}
 
 @keywords{histogram, bin, interval}
