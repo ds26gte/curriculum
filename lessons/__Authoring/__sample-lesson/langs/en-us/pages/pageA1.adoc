@@ -4,7 +4,7 @@
 
 @scrub{@do{(printf "doing racket do\n")}}
 
-anotehlkajdf colloxr
+teknoloqui  anotehlkajdf colloxr
 
 @vocab{boolean}
 
@@ -29,6 +29,26 @@ The programming language of instruction is
 @ifproglang{pyret}{ Pyret, without Lispy parens to guide you. }
 
 @show{(code '(bar-chart-summarized))}
+
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
 
 Dolorem et temporibus illo a. Ullam ut nostrum non mollitia natus
 iusto consequatur nisi. Dolorem quo suscipit voluptatem nihil

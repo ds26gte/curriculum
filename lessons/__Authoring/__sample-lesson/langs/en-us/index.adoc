@@ -214,7 +214,30 @@ behind some of the programming-specific language.
 
 @ifproglang{pyret}{@assessment{histograms-check2-desmos}}
 
-cadegory
+kateogy
+
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
+the the 
 
 == Additional Exercises
 
