@@ -15,6 +15,59 @@ deadlift. @math{3a   =   2h   +  1i} or  @math{3=2+1}
 
 @lesson-prereqs{}
 
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the 
+the 
+the 
+the 
+the 
+the 
+the 
+the 
+the 
+the 
+the 
+the 
+the 
+the 
+the 
+the 
+the 
+the 
+the 
+the 
+the 
+the 
+the 
+the 
+the 
+the 
+
 @ifproglang{wescheme}{lkajdf}
 
 @keywords{larry, curly, moe}
@@ -160,6 +213,8 @@ behind some of the programming-specific language.
 }
 
 @ifproglang{pyret}{@assessment{histograms-check2-desmos}}
+
+cadegory
 
 == Additional Exercises
 

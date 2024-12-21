@@ -4,7 +4,7 @@
 
 @scrub{@do{(printf "doing racket do\n")}}
 
-anotehlkajdf
+anotehlkajdf colloxr
 
 @vocab{boolean}
 
