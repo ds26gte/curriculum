@@ -1,28 +1,25 @@
 = Histograms and Measures of Center
 
-@n The two histograms below represent the amount how the number of minutes spent traveling to school, one for a sample of sixth grade students and one for a sample of eighth grade students.
+@n The two histograms below show the number of minutes students spent traveling to school: one represents a sample of sixth grade students and the other represents a sample of eighth grade students. All travel times in the dataset are whole numbers.
 
 [cols="^1a,^1a"]
 |===
-
 | *Distribution of Travel Times (Sixth Grade)*
-@image{../images/travel-time-a.png, 200}
+  @image{../images/travel-time-a.png, 200}
 | *Distribution of Travel Times (Eighth Grade)*
-@image{../images/travel-time-b.png, 200}
-
+  @image{../images/travel-time-b.png, 200}
 |===
 
+@n Which group has the larger mode(s). @hspace{1em} sixth graders @hspace{2em} @ifsoln-choice{eighth graders} @hspace{2em} the modes are roughly the same
 
-Which group has the larger mode? @hspace{1em} sixth graders @hspace{2em} @ifsoln-choice{eighth graders} @hspace{2em} the modes are roughly the same
-
+@teacher{Students might choose 6th graders because the tallest bin has 10, whereas the tallest 8th grade bin has 9... but we're looking for which value the tallest bin lands on, which is between 10 and 15 for 8th graders and between 5 and 10 for sixth graders.}
 
 @n The histogram below shows the ages of the 19 children who signed up for rock climbing camp.
 
 [cols="^3a,<4a"]
 |===
-
 | *Distribution of Rock Climbers' Ages*
-@image{../images/rock-climbing-ages.png, 210}
+@image{../images/rock-climbing-ages.png, 190}
 | The median age for these 19 climbers is:
 
 @vspace{1ex}
@@ -40,26 +37,21 @@ Which group has the larger mode? @hspace{1em} sixth graders @hspace{2em} @ifsoln
 @vspace{1ex}
 
 &#9744; about 12 or 13
-
 |===
 
 Explain how you determined the median value: @fitb{}{@ifsoln{Possible response: I knew that the 10th value is the median, because there }}
 
 @fitb{}{@ifsoln{are 19 children represented. I located the 10th value on the histogram, and it was in the 8-10 interval.}}
 
-@fitb{}{}
-
-@fitb{}{}
+@ifnotsoln{@fitb{}{}}
 
 
-@n Eleven students were asked to solve a logic puzzle. The minimum time was 5 minutes, and the maximum time was 35 minutes. Times were rounded to the nearest 5 minutes. The distribution of their times is shown on the histogram below.
+@n Eleven students were asked to solve a logic puzzle. The minimum time was 5 minutes, and the maximum time was 35 minutes. The distribution of their times is shown on the histogram below.
 
 
 [cols="^3a,<4a"]
 |===
-
 | *Distribution of Time Spent Solving a Logic Puzzle*
-
 @image{../images/logic-puzzle.png, 210}
 | Which of the following statements is likely a correct comparison of the mean and median number of minutes spent working?
 
@@ -77,7 +69,7 @@ Explain how you determined the median value: @fitb{}{@ifsoln{Possible response: 
 
 @vspace{1ex}
 
-&#9744; It is impossible to determine which time is greater from the given graph.
+&#9744; There isn't enough information provided to determine which is greater.
 |===
 
 Explain how you arrived at your choice: @fitb{}{@ifsoln{The outliers on the right pull the mean to the right,}}
@@ -86,4 +78,4 @@ Explain how you arrived at your choice: @fitb{}{@ifsoln{The outliers on the righ
 
 @fitb{}{}
 
-@fitb{}{}
+

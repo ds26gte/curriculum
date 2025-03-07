@@ -1,23 +1,6 @@
 include $(MAKE_DIR)utils.mk
 
-phase2: css-from-less specials verifylinks images tocs books
-
-###############################################################################
-
-less-files := $(wildcard lib/*.less)
-
-css-from-less-files := $(foreach lessf,$(less-files), $(patsubst %.less,distribution/$(NATLANG)/%.css,$(lessf)))
-
-css-from-less: $(css-from-less-files)
-
-define make-css-from-less-rule
-$(patsubst %.less,distribution/$(NATLANG)/%.css, $1): $1
-	@node_modules/less/bin/lessc $$< $$@
-	@echo "  " • Updated $$@
-
-endef
-
-$(eval $(foreach lessf,$(less-files),$(call make-css-from-less-rule, $(lessf))))
+phase2: specials verifylinks images tocs books
 
 ##########################################################################
 
@@ -188,7 +171,22 @@ endef
 $(if $(BOOK),\
 $(eval $(foreach contracts-pdf,$(the-course-contracts-pdfs),$(call make-build-contracts-pdf-rule,$(contracts-pdf)))),)
 
-build-contracts-pdfs: $(the-course-contracts-pdfs)
+ifeq "$(BOOK)" ""
+	all-contracts-pdf :=
+else
+	all-contracts-pdf := distribution/$(NATLANG)/Contracts.pdf
+endif
+
+define make-all-contracts-rule
+distribution/$(NATLANG)/Contracts.pdf: distribution/$(NATLANG)/Contracts.shtml
+	@echo \"$$<\", >> $(SETUP_PATHWAYINDEPENDENT_PDF)
+
+endef
+
+$(if $(BOOK),\
+$(eval $(call make-all-contracts-rule,x)),)
+
+build-contracts-pdfs: $(the-course-contracts-pdfs) $(all-contracts-pdf)
 
 ###############################################################################
 
@@ -263,7 +261,7 @@ distribution/$(NATLANG)/images.js: $(lesson-images-json-files)
 
 dependency-graph: distribution/$(NATLANG)/dependency-graph.js distribution/$(NATLANG)/starterFiles.js
 
-distribution/$(NATLANG)/dependency-graph.js: $(lesson-plan-adoc-files)
+distribution/$(NATLANG)/dependency-graph.js: $(all-lesson-plan-adoc-files)
 	@echo ➤ Make $@
 	@$(MAKE_DIR)make-dependency-graph.lua $@
 	@$(MAKE_DIR)check-graph.sh

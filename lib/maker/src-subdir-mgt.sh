@@ -5,7 +5,9 @@ function adjustproglangsubdirs() {
   local d=$1
   local pl=$2
 
-  test -d "$d"/"$pl" && $CP -p "$d"/"$pl"/* "$d"
+  if test -d "$d"/"$pl"; then
+    (find "$d"/"$pl" -maxdepth 0 -empty|grep -q .) || $CP -p "$d"/"$pl"/* "$d"
+  fi
 
   if test "$pl" != pyret -a "$pl" != none; then
     local lang
@@ -75,7 +77,7 @@ function make_solution_pages() {
   mkdir -p solution-pages-2
   if test -d pages; then
     # copy everything from pages to solution-pages-2 except *html. May need to make this more robust
-    (find pages -maxdepth 0 -empty|grep -q .) || $CP -pr pages/*[^l] solution-pages-2
+    (find pages -maxdepth 0 -empty|grep -q .) || $CP -pr pages/*[^l] solution-pages-2 2>/dev/null
   fi
   $CP -p $TOPDIR/lib/.hta* solution-pages-2
   if test -d solution-pages; then

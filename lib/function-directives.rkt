@@ -128,15 +128,11 @@
 (define (wescheme-symbol->pyret e)
   (cond [(eq? e '<=) "\\<="]
         [(eq? e '=) "=="]
-        [(eq? e 'abs) "num-abs"]
-        [(eq? e 'expt) "num-expt"]
         [(eq? e 'frac) "/"]
         [(eq? e 'image=?) "images-equal"]
         [(eq? e 'make-posn) "posn"]
-        [(eq? e 'pi) "num-pi"]
-        [(eq? e 'random) "num-random"]
-        [(eq? e 'sqr) "num-sqr"]
-        [(eq? e 'sqrt) "num-sqrt"]
+        [(eq? e 'pi) "PI"]
+        [(eq? e 'e) "E"]
         [(eq? e 'string-contains?) "string-contains"]
         [(eq? e 'string<=?) "\\<="]
         [(eq? e 'string<>?) "<>"]
@@ -164,11 +160,11 @@
                                         string=? string<? string<=? string>? string>=? string<>?
                                         frac
                                         ))
-                            (let* ([a (wescheme->pyret a)]
-                                   [lft (wescheme->pyret (list-ref e 1) #:parens parens #:wrap #t)]
-                                   [rt (wescheme->pyret (list-ref e 2) #:parens parens #:wrap #t)]
-                                   [x (format "~a ~a ~a" lft a rt)])
-                              (if (or parens wrap)
+                            (let* ([a-p (wescheme->pyret a)]
+                                   [lft (wescheme->pyret (list-ref e 1) #:parens parens #:wrap a)]
+                                   [rt (wescheme->pyret (list-ref e 2) #:parens parens #:wrap a)]
+                                   [x (format "~a ~a ~a" lft a-p rt)])
+                              (if (or parens (and wrap (not (and (memq a '(+ *)) (eq? wrap a)))))
                                   (format "({zwsp}~a{zwsp})" x)
                                   x))]
                            [(eq? a 'cond)
@@ -211,6 +207,12 @@
                                     (if rhs-s-nl? "\n" " ")
                                     "end")
                                   (string-append lhs-s " = " rhs-s)))]
+                           [(eq? a 'table-ref)
+                            (let* ([lhs (second e)]
+                                   [rhs (third e)]
+                                   [lhs-s (wescheme->pyret lhs #:parens parens)]
+                                   [rhs-s (wescheme->pyret rhs #:parens parens)])
+                              (string-append lhs-s "[" rhs-s "]"))]
                            [(eq? a 'BEGIN)
                             (string-join
                               (map (lambda (e) (wescheme->pyret e #:parens parens)) (rest e))
@@ -431,7 +433,10 @@
 
   (cond [(string? body)
          (cond [(regexp-match "^ *$" body) #f]
-               [(or (regexp-match "\n" body) (regexp-match " .* " body)) #f]
+               [(or (regexp-match "\n" body)
+                    (regexp-match " .* " body)
+                    (regexp-match "[^ ][(\\[]" body)
+                    ) #f]
                [else (set! body (wescheme->pyret body))])]
         [(null? body) (set! body "")]
         [else (set! body (wescheme->pyret body))])

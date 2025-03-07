@@ -5,7 +5,7 @@ The histogram below shows the ages of eleven cats at the shelter:
 @ifnotsoln{@image{../images/histogram-with-outlier.png, 100%}}
 @ifsoln{@image{../images/histogram-with-outlier-w-arrows.png, 100%}}
 
-@n Describe the shape of this histogram. @fitb{}{@ifsoln{slight right skew}}
+@n Describe the shape of this histogram. @fitb{}{@ifsoln{right skew}}
 
 @n How many cats are 1 year old? 2 years old? Fill in the table below by reading the histogram. The first column has been done for you.
 
@@ -16,8 +16,6 @@ The histogram below shows the ages of eleven cats at the shelter:
 | frequency |4|@ifsoln{2}|@ifsoln{1}|@ifsoln{0}|@ifsoln{1}|@ifsoln{0}|@ifsoln{2}|@ifsoln{0}
 |@ifsoln{0}|@ifsoln{0}|@ifsoln{0}|@ifsoln{0}|@ifsoln{0}|@ifsoln{0}|@ifsoln{0}|@ifsoln{1}
 |===
-
-@vspace{1ex}
 
 @n What is the mean age of the cats in this histogram? @fitb{}{@ifsoln{~4.2}}
 
@@ -48,8 +46,6 @@ To compute the standard deviation we square each distance and take the average, 
 | squared distance 	 |10.24 |10.24 |10.24 |10.24 | 4.84 | 4.84 | 1.44 | 0.64 | 7.84 | 7.84 | 139.24
 |===
 }
-
-@vspace{1ex}
 
 @n Add all the squared distances. What is their sum? @fitb{8em}{@ifsoln{207.64}}
 

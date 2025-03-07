@@ -1,8 +1,8 @@
-= Exploring Exponential Models
+= Exploring the Spread of Disease
 
-@description{Students investigate exponential relationships in data about Covid spread.}
+@description{Students investigate relationships in data about the spread of Covid in 2020, discovering that the shape of the relationship is neither linear nor quadratic!}
 
-@lesson-prereqs{fitting-models, lookups}
+@lesson-prereqs{fitting-models, functions-with-lookups}
 
 @keywords{exponential, quadratic, square, coefficient}
 
@@ -11,13 +11,13 @@
 
 | Lesson Goals
 | Students will be able to...
-
--
+@objectives
 
 | Student-facing Lesson Goals
 |
 
--
+- Let's explore the rate at which a pandemic spreads in a real population
+- Let's find out how linear and quadratic models fit the spread of disease
 
 | Materials
 |[.materials-links]
@@ -41,20 +41,19 @@ You will want to:
 
 === Overview
 
-Students explore the covid dataset, focusing on the growth in positive test cases for the state of Massachusetts.
+Students explore the Covid dataset, focusing on the growth in positive test cases for the state of Massachusetts (they will eventually explore other states later on).
 
 === Launch
 
-In late in 2019, COVID-19 began to spread across the globe. Most of us heard terms like "flatten the curve" and "infection rate" in videos and on the news.
+In late 2019, COVID-19 began to spread across the globe. Most of us heard terms like "flatten the curve" and "infection rate" in videos and on the news.
 
 Even in 2020, very few people could have predicted the impact Covid would have on the world. But Data Scientists who were looking at the data knew differently. Let's take a look at some of that data!
 
 === Investigate
 
 @lesson-instruction{
-- We're going to look at the daily total of confirmed, positive cases for Rhode Island, Maine, Vermont, New Hampshire, Massachusetts, and Connecticut - all the states formed out of what the English called "New England".
-- Open the @starter-file{alg2-covid}, which imports data from a spreadsheet that looks at the Covid infection rates for New England states from summer 2020 until the end of the year.
-- From the File menu, select "Save a Copy", and click "Run."
+- We're going to look at the daily total of confirmed, positive cases for New England (Rhode Island, Maine, Vermont, New Hampshire, Massachusetts, and Connecticut) from summer 2020 until the end of the year..
+- Open the @starter-file{alg2-covid}, select "Save a Copy", and click "Run."
 - Working in pairs or small groups, complete @printable-exercise{exploring-covid.adoc}.
 }
 
@@ -64,7 +63,7 @@ This dataset is @link{https://docs.google.com/spreadsheets/d/1T73KS2IUU1kkG1SY4A
 
 And even within New England, we've _artificially constrained this dataset_, showing only the data from June 9th to December 26th, 2020. We've made this choice in order to showcase the most purely-exponential behavior of the infection curve, for the sake of this lessons' math learning goals.
 
-For students who are farther along in mathematics, we recommend showing them _all_ the data through 2020, starting in January rather than June. The first portion of the infection curve shows a gradual, linear growth pattern before exploding in the Fall of 2020. A purely exponential function will under-predict the growth during this time period by that it adds enormous friction to the modeling goal of this unit!
+For students who are farther along in mathematics, we recommend showing them _all_ the data through 2020, starting in January rather than June. The first portion of the infection curve shows a gradual, linear growth pattern before exploding in the Fall of 2020. A purely exponential function will under-predict the growth during this time period, adding significant friction to the exponential modeling goal of this unit!
 
 (The functions necessary to model this kind of growth have multiple terms showing different kinds of growth, and are just out of reach for students right now. Students can _return_ to this unit once they've learned about @lesson-link{periodic4-hybrid-models, hybrid models} in later lessons.)
 
@@ -75,10 +74,10 @@ To use all available data, open the @starter-file{alg2-covid} and change the sou
 
 === Synthesize
 
-@ifslide{@right{@image{images/multiple-models.png}}}
-@ifnotslide{@center{@image{images/multiple-models.png}}}
 @lesson-instruction{
+@right{@image{images/multiple-models.png, 350}}
 Discuss in groups or pairs, and prepare to share out to the class:
+
 - Based on the look of the scatter plot you just made, do you think there's a strong relationship here?
 - If we fit a curve or straight line to this data, do you think it would fit the scatter plot well?
 }
@@ -86,27 +85,27 @@ Discuss in groups or pairs, and prepare to share out to the class:
 @teacher{
 Review student answers to confirm that students have made a number of observations:
 
-- There appears to be _more than one_ relationship in this dataset
-- Every relationship appears to be extremely strong
-- Most/all of these relationships appear nonlinear
+- There appears to be _more than one_ relationship in this dataset.
+- Every relationship appears to be extremely strong.
+- Most/all of these relationships appear to be nonlinear.
 }
 
 == Fitting Linear Models
 @objective{model-fit-function}
 
 === Overview
-Students try to fit a linear model to this data. This section makes heavy use of interactive slider activities we've built in Desmos to support open-ended experimentation.
+Students use Pyret to perform linear regression on the data from Massachusetts and discuss whether or not the optimal linear model is a good fit for the data.
 
 === Launch
 Let's start out by looking at _just one state_. We'll use Massachusetts for this investigation, but you can do your own investigation about any state you like after finishing this one!
 
-The definition @show{(code '(define MA-table (filter covid-table is-MA)))} _filters_ our dataset, keeping only the rows for which `state = "MA"`.
-
 === Investigate
 
 @lesson-instruction{
-Complete @printable-exercise{linear-models.adoc}.
+- Complete @printable-exercise{linear-models.adoc}.
 }
+
+The definition @show{(code '(define MA-table (filter covid-table is-MA)))} _filters_ our dataset, keeping only the rows for which `state = "MA"`. We could create other helper functions like `is-MA`, and use them with the `filter` function to get datasets for any state we want!
 
 @slidebreak
 

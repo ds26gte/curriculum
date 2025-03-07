@@ -378,7 +378,7 @@ To calculate the distance between objects whose locations are constantly changin
 @slidebreak
 
 @lesson-instruction{
-- @right{@image{images/pxpy2.png, 300}}Turn to @printable-exercise{distance.adoc} and use the Design Recipe to help you write a function that takes in two @vocab{coordinate} pairs (four numbers) of two characters (@math{px, py}) and (@math{cx, cy}) and returns the distance between those two points.
+- @right{@image{images/pxpy2.png, 300}}Turn to @printable-exercise{distance-dr.adoc} and use the Design Recipe to help you write a function that takes in two @vocab{coordinate} pairs (four numbers) of two characters (@math{px, py}) and (@math{cx, cy}) and returns the distance between those two points.
 - HINT: The code you wrote in @printable-exercise{distance-coe.adoc} can be used to give you your first example!
 - When you're done, fix the broken `distance` function in your game file, click "Run" and check that the right triangles in your file now appear with reasonable distances for the hypotenuse.
 }
@@ -405,8 +405,8 @@ Take a look at the two examples on @printable-exercise{distance-comparing-code.a
 It is _extremely common_ for students to put variables in the *wrong order*. In other words, their program looks like
 @ifproglang{wescheme}{ `...(sqrt (+ (sqr (line-length x1 y1)) (sqr (line-length x2 y2))))...`
 instead of `...(sqrt (+ (sqr (line-length x2 x1)) (sqr (line-length y2 y1))))...` }
-@ifproglang{pyret}{ `...num-sqrt(num-sqr(line-length(x1,y1)) + num-sqr(line-length(x2, y2)))...`
-instead of `...num-sqrt(num-sqr(line-length(x2 x1)) + num-sqr(line-length(y2 y1)))...` }
+@ifproglang{pyret}{ `...sqrt(sqr(line-length(x1,y1)) + sqr(line-length(x2, y2)))...`
+instead of `...sqrt(sqr(line-length(x2 x1)) + sqr(line-length(y2 y1)))...` }
 
 In this situation, remind students to look back at what they circled and labeled in the example steps. _This is why we label!_
 

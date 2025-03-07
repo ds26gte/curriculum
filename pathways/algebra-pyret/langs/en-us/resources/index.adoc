@@ -9,7 +9,7 @@
 === Standalone Hour of Code Activities from Bootstrap
 
 - *Hour of Data* [@lesson-link{hoc-data/, link}] - A self-guided Desmos activity for exploring a real dataset to make sense of a real-world problem.
-- *Snowman Puzzle*[@lesson-link{hoc-winter-parley, link}] - This Pyret Starterfile has all the pieces your students will need to make a snowman by changing the coordinates in the code.
+- *Snowman Puzzle*[@lesson-link{hoc-winter-parley, link}] - This Pyret Starter File has all the pieces your students will need to make a snowman by changing the coordinates in the code.
 
 == Exercises and Solutions
 @all-exercises
@@ -36,6 +36,12 @@ The Bootstrap:Algebra curriculum includes three mini projects, each designed to 
 - *Design Recipe Rubric* [@dist-link{lessons/functions-dr/pages/rubric-dr.adoc, html}]
 - *Collection of Bootstrap:Algebra Desmos Activities* [@link{https://teacher.desmos.com/collection/5fbecc2b40d7aa0d844956f0, link}]
 - *About Notice and Wonder pedagogy* [@dist-link{pages/notice-wonder.pdf, PDF}]
+- *Game Templates*
+ * @starter-file{game}
+ * @starter-file{sample-game}
+ * @starter-file{sample-game-w-distance}
+ * @starter-file{sample-game-2d}
+
 
 == Textbook Alignment
 We offer alignment guides for several popular math textbooks, which make it easy to adopt Bootstrap as part of your normal scope and sequence. These guides are available for:

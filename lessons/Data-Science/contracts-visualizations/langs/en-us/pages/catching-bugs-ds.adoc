@@ -2,25 +2,25 @@
 ++++
 <style>
 .error { font-family: Hack, "Courier New", monospace; background: #efefef; }
+.autonum, .fitb { padding-top: 1rem !important; }
 </style>
 ++++
 == Learning about a Function through Error Messages
  
 @n Type `sort` into the Interactions Area of the @starter-file{animals} and hit "Enter". What do you learn? @fitb{}{@ifsoln{sort is a function}}
 
-@n We know that all functions need an open parenthesis and at least one input! Type @show{(code '(sort animals-table))} in the Interactions Area and hit Enter/return. Read the error message. What hint does it give us about how to use this function?
+@n We know that all functions need an open parenthesis and at least one input! Type @show{(code '(sort animals-table))} in the Interactions Area and hit Enter. Read the error message. What hint does it give us about how to use this function?
 
 @fitb{}{@ifsoln{The Domain of the sort function is Table, String, Boolean.}}
 
-== What Kind of Error is it?
+@n Read the explanations below. Then explain the difference in your own words.
 
-[.indentedpara]
---
-@vocab{syntax errors} -  when the computer cannot make sense of the code because of unclosed strings, missing commas or parentheses,  etc.
-@vocab{contract errors} - when the function isn't given what it needs (the wrong type or number of arguments are used)
---
+@indented{
+*syntax errors* -  when the computer cannot make sense of the code because of unclosed strings, missing commas or parentheses,  etc.
+*contract errors* - when the function isn't given what it needs (the wrong type or number of arguments are used)
+}
 
-@n In your own words, the difference between @vocab{syntax errors} and @vocab{contract errors} is: @fitb{}{}
+ The difference between @vocab{syntax errors} and @vocab{contract errors} is: @fitb{}{}
 
 @fitb{}{}
 

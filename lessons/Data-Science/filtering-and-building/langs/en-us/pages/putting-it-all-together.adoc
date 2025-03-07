@@ -3,7 +3,9 @@
 [linkInstructions]
 Open the @starter-file{putting-it-all-together} and *take a look at the helper functions* in the Definitions Area.
 
-Write the names of those functions here: @fitb{}{}
+Write the names of those functions here: @fitb{}{@ifsoln{`is-dog`, `is-cat`, `is-young`, `is-old`, `get-name`, `is-fixed`, `label`, `kilos`}}
+
+@fitb{}{}
 
 == Filter and Building with our Helper Functions
 
@@ -21,7 +23,7 @@ _Example: Make a table of only dogs (define it as `dogs`)_
 
 @n Make a table with a column called "sticker", containing a label for every animal
 
-@fitb{}{`stickers =` @ifsoln{build-column(animals-table, "sticker", label)`}}
+@fitb{}{`stickers =` @ifsoln{`build-column(animals-table, "sticker", label)`}}
 
 
 @n Make a table of only fixed dogs (define it as `fixed-dogs`)
@@ -58,9 +60,9 @@ _Example: Make a table of only dogs (define it as `dogs`)_
 @fitb{}{@ifsoln{`pie-chart(fixed-dogs, "sex")`}}
 
 
-@n Make a box plot showing the distribution of months to adoption.
+@n Make a dot plot showing the distribution of months to adoption.
 
-@fitb{}{@ifsoln{`box-plot(months-table, "months")`}}
+@fitb{}{@ifsoln{`dot-plot(months-table, "months")`}}
 
 
 @star Make a scatter plot of old, fixed dogs, comparing age to pounds using the "sticker" as the label!

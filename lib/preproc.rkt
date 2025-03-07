@@ -219,6 +219,7 @@
 (define *starter-file-links* '())
 (define *opt-starter-file-links* '())
 (define *opt-project-links* '())
+(define *project-lessons* '())
 
 (define *images-hash-list* '())
 
@@ -823,6 +824,7 @@
                     "index.asciidoc"))))
 
 (define (make-dist-link f link-text)
+  ; (printf "doing make-dist-link ~s ~s\n" f link-text)
   (let ([url-has-query-string? #f])
     (cond [(regexp-match "\\?.*=" f) (set! url-has-query-string? #t)
                                      (unless (regexp-match "/" f) (set! f (string-append "./" f)))]
@@ -833,12 +835,13 @@
     (let* ([m (regexp-match "^(.*)/([^/]*)$" f)]
            [dir (second m)] [snippet (third m)]
            [dir-compts (regexp-split #rx"/" dir)]
-           [f.titletxt (path-replace-extension
-                         (build-path dir ".cached" snippet) ".titletxt")]
+           [dist-natlang-dir (format "distribution/~a" *natlang*)]
+           [f.titletxt (format "~a/~a/.cached/.~a"
+                               dist-natlang-dir dir
+                               (path-replace-extension snippet ".titletxt"))]
            [page-title (and (file-exists? f.titletxt)
                             (call-with-input-file f.titletxt read-line))]
            [existent-file? #f]
-           [dist-natlang-dir (format "distribution/~a" *natlang*)]
            [url-without-query-string #f])
       (cond [url-has-query-string?
               (set! url-without-query-string (regexp-replace "\\?.*" f ""))
@@ -889,13 +892,18 @@
         [(regexp-match "^[^/]+$" f)
          (set! f (string-append f "/index.adoc"))])
 
-  ;(printf "doing make-lesson-link ii ~s ~s\n\n" f link-text)
+  ; (printf "doing make-lesson-link ii ~s ~s\n\n" f link-text)
 
   (let* ([m (regexp-match "^(.*)/([^/#]*)(#?[^/]*)$" f)]
          [dir (second m)]
          [fyle (third m)]
          [sec (fourth m)]
-         [dir-compts (regexp-split #rx"/" dir)])
+         [dir-compts (regexp-split #rx"/" dir)]
+         [project-lesson? #f]
+         )
+
+    (when (regexp-match "project-" dir)
+      (set! project-lesson? #t))
 
     (unless (string=? sec "")
       (set! f (string-append dir "/" fyle)))
@@ -951,6 +959,11 @@
       (when (and (or (not link-text) (string=? link-text "")) page-title)
         (set! link-text page-title))
       (when (path? f) (set! f (path->string f)))
+      (when project-lesson?
+        (unless (member f *project-lessons*)
+          (set! *project-lessons*
+            (cons (regexp-replace "distribution/[^/]+/lessons/" dir "")
+                  *project-lessons*))))
       (let ([link-output
 
               (format "link:{fromlangroot}pass:[~a~a][~a~a]"
@@ -1211,6 +1224,75 @@
               (set! link-text (call-with-input-file title-file read-line)))
             (fprintf o "\n** link:../../../lessons/~a/pages/~a.html[~a]\n" lesson page link-text)))))))
 
+
+(define (link-to-project-lessons-short-form header project-lessons o)
+  ; (printf "doing link-to-project-lessons-short-form\n")
+  (when (pair? project-lessons)
+    (fprintf o "\n\n== Projects Available for this ~a\n\n" header)
+    (let ([firstp #t])
+      (for ([project-lesson project-lessons])
+        (let* ([link-title-file (format
+                                  "distribution/~a/lessons/~a/.cached/.index.titletxt"
+                                  *natlang* project-lesson)]
+               [link-text (if (file-exists? link-title-file)
+                              (call-with-input-file link-title-file port->string)
+                              project-lesson)])
+          (set! link-text (regexp-replace "Project: " link-text ""))
+          (if firstp (set! firstp #f)
+              (display ", " o))
+          (fprintf o "link:~apass:[lessons/~a/index.shtml][~a]"
+                   "{fromlangroot}"
+                   project-lesson link-text))))
+    (display "\n\n" o)))
+
+(define (link-to-project-lessons-long-form header project-lessons o)
+  (when (pair? project-lessons)
+    (newline o)
+    (for ([project-lesson project-lessons])
+      (let* ([link-title-file (format
+                                "distribution/~a/lessons/~a/.cached/.index.titletxt"
+                                *natlang* project-lesson)]
+             [link-desc-file (format
+                               "distribution/~a/lessons/~a/.cached/.index-desc.txt.kp"
+                               *natlang* project-lesson)]
+             [link-text (if (file-exists? link-title-file)
+                            (call-with-input-file link-title-file port->string)
+                            project-lesson)]
+             [link-desc (if (file-exists? link-desc-file)
+                            (call-with-input-file link-desc-file port->string)
+                            project-lesson)])
+        (set! link-text (regexp-replace "Project: " link-text ""))
+        (fprintf o "\n* link:~apass:[~a][~a]: ~a"
+                 "{fromlangroot}"
+                 project-lesson link-text link-desc)))
+    (display "\n\n" o)))
+
+
+(define (link-to-project-lessons-in-lesson-plan o)
+  ; (printf "doing link-to-project-lessons-in-lesson-plan\n")
+  (let ([project-lessons (reverse *project-lessons*)])
+    (link-to-project-lessons-short-form "Lesson" project-lessons o)))
+
+(define (link-to-project-lessons-in-pathway o)
+  ; (printf "doing link-to-project-lessons-in-pathway\n")
+  (let ([lessons (read-data-file
+                   (format "distribution/~a/courses/~a/.cached/.workbook-lessons.txt.kp"
+                           *natlang* *target-pathway*))]
+        [project-lessons '()])
+    (for ([lesson lessons])
+      (let ([lesson-pl-file
+              (format "distribution/~a/lessons/~a/.cached/.index-projectlessons.rkt.kp" *natlang* lesson)])
+        (when (file-exists? lesson-pl-file)
+          (let ([lesson-project-lessons (call-with-input-file lesson-pl-file read)])
+            (set! project-lessons
+              (append project-lessons lesson-project-lessons))))))
+    (set! project-lessons (remove-duplicates project-lessons))
+    ((if *teacher-resources*
+         link-to-project-lessons-long-form
+         link-to-project-lessons-short-form)
+      "Course" project-lessons o)
+    ))
+
 (define (link-to-lessons-in-pathway o)
   ; (printf "link-to-lessons-in-pathway\n")
   ;
@@ -1347,6 +1429,7 @@
   (set! *starter-file-links* '())
   (set! *opt-starter-file-links* '())
   (set! *opt-project-links* '())
+  (set! *project-lessons* '())
   (set! *exercises-done* '())
   (set! *objectives-met* '())
   (set! *assessments-met* '())
@@ -1574,6 +1657,11 @@
                                    [link-text (string-join (map string-trim (rest args)) ", ")])
                               (set! link-text (string-trim link-text "\""))
                               (display (make-lesson-link page link-text) o))]
+                           [(string=? directive "project-list")
+                            (cond [*lesson-plan*
+                                    (link-to-project-lessons-in-lesson-plan o)]
+                                  [(or *narrative* *teacher-resources*)
+                                    (link-to-project-lessons-in-pathway o)])]
                            [(or (string=? directive "printable-exercise")
                                 (string=? directive "opt-printable-exercise")
                                 (string=? directive "handout")
@@ -1985,6 +2073,7 @@
                                   [lbl (string->symbol (first args))]
                                   [c (hash-ref *citations* lbl #f)]
                                   [in-text (and c (hash-ref c 'in-text #f))]
+                                  [link (string-append "link:" (hash-ref c 'public-url) "[" in-text "]")]
                                   [apa (and c (hash-ref c 'apa #f))])
                              (cond [(> (length args) 1)
                                     (set! in-text
@@ -2002,8 +2091,8 @@
                                     (printf "WARNING: ~a: @~a ~a missing\n\n"
                                             (errmessage-context) directive lbl)]
                                    [else (display
-                                           (enclose-span ".citation" 
-                                            (string-append in-text (enclose-span ".apa-citation" apa)))
+                                           (enclose-span ".citation"
+                                            (string-append link (enclose-span ".apa-citation" apa)))
                                            o)]))]
                           [(string=? directive "objectives")
                            (fprintf o "\ninclude::~a/{cachedir}.index-objectives.asc[]\n" *containing-directory*)]
@@ -2092,6 +2181,9 @@
                   [(and beginning-of-line? (char=? c #\=))
                    ; (set! beginning-of-line? #f)
                    ; (set! possible-beginning-of-line? #f)
+                   (when (span-stack-present?)
+                     (printf "WARNING: ~a: Header can't be inside span\n\n"
+                             (errmessage-context)))
                    (cond [*title-reached?*
                            (cond [*first-subsection-reached?* #f]
                                  [(check-first-subsection i o)
@@ -2215,7 +2307,7 @@
               (expand-directives i o)
 
               (when (and *narrative* (not *title-reached?*))
-                (print-course-title-and-logo *target-pathway* make-image o)
+                (print-course-title-and-logo *target-pathway* make-image store-title o)
                 (display-alternative-proglang o)
                 (print-course-banner *target-pathway* o)
                 (link-to-lessons-in-pathway o)
@@ -2394,6 +2486,21 @@
               (set! s (regexp-replace* #rx" *\\([0-9]* +minutes\\)" s ""))
               (write s o) (newline o)))
           #:exists 'replace)
+
+        (when (pair? *project-lessons*)
+          (let ([pl-file (build-path *containing-directory* ".cached" ".index-projectlessons.rkt.kp")]
+                [project-lessons (reverse *project-lessons*)])
+
+            (call-with-output-file pl-file
+              (lambda (o)
+                (display "(\n" o)
+                (for ([pl project-lessons])
+                  (fprintf o "~s\n" pl))
+                (display ")\n" o)
+                )
+              #:exists 'replace)
+
+            ))
         )
 
       (when (or *lesson-plan* *lesson*)
@@ -2842,7 +2949,12 @@
   (add-prereq sym #:check? check-in-langtable?))
 
 (define (add-starter-file sf #:opt? [opt? #f])
-  ((if opt? add-opt-starter-file add-reqd-starter-file) sf))
+  (when (or *lesson-plan*
+            (and *lesson*
+                 (or
+                   (regexp-match "/pages$" *containing-directory*)
+                   (regexp-match "/solution-pages$" *containing-directory*))))
+    ((if opt? add-opt-starter-file add-reqd-starter-file) sf)))
 
 (define (add-reqd-starter-file sf)
   (cond [(member sf *starter-files-used*) #f]

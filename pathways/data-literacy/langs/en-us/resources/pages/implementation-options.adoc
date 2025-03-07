@@ -3,7 +3,14 @@
 
 ++++
 <style>
-@import 'https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap';
+@font-face {
+  font-family: 'Reenie Beanie';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/reeniebeanie/v20/z7NSdR76eDkaJKZJFkkjuvWxXPq1q6Gjb_0.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 #content { display: block !important; }
 
@@ -122,29 +129,7 @@ In this unit, students apply their newfound programming power to identify _relat
 
 [.Unit]
 --
-Unit 4: Transforming and Playing with Data
-
-Students learn to program _functions_, super-charging their programming arsenals with core algebraic concepts that allow them to create custom visualations that express many dimensions of data. They also learn how to _sort, filter, and transform_ their dataset to search for patterns, zoom in on samples, and identify trends within sub-groups of their samples.
-
-[.Lessons]
-* @lesson-link{lookups}
-* @lesson-link{functions-make-life-easier}
-* @lesson-link{functions-examples-definitions}
-* @lesson-link{advanced-visualizations}
-* @lesson-link{filtering-and-building}
-* @lesson-link{functions-dr}
-* @lesson-link{composing-table-operations}
-* @lesson-link{defining-table-functions}
-* @lesson-link{grouped-samples}
-
-[.Projects]
-* @lesson-link{functions-dr/pages/dr-telephone.adoc}
-* @lesson-link{project-beautiful-data}
---
-
-[.Unit]
---
-Unit 5: Using Data Responsibly
+Unit 4: Using Data Responsibly
 
 As full-fledged data scientists, students consider the _social impact_ of their work. How do we know that the tools we use to analyze data haven't been tampered with? How do we know to trust the validity of our methods and data-collection? What are the ethical implications of this work? Using the visualization library from the previous unit, students conduct an original research project into their data. In doing so, they confront both analytical and ethical factors in their final report, and discuss the ethical standards that define a responsible data scientist.
 
@@ -189,18 +174,10 @@ This format includes multiple project-based options, including @lesson-link{proj
 * @lesson-link{bar-and-pie-charts}
 * @lesson-link{data-cycle}
 * @lesson-link{choosing-your-dataset}
-* @lesson-link{functions-examples-definitions}
-* @lesson-link{lookups}
-* @lesson-link{advanced-visualizations}
-* @lesson-link{composing-table-operations}
 |
 === ...then choose what you need
 * @lesson-link{data-collection}
 * @lesson-link{computing-needs-all-voices}
-* @lesson-link{composing-table-operations}
-* @lesson-link{functions-dr}
-* @lesson-link{defining-table-functions}
-* @lesson-link{grouped-samples}
 * @lesson-link{probability-inference}
 * @lesson-link{correlations}
 * @lesson-link{linear-regression}

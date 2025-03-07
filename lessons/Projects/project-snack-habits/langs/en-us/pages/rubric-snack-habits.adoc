@@ -3,9 +3,10 @@
 [cols="2,4,4,4", options="header"]
 |===
 |
-^| Wow!
-^| Getting There
-^| Needs Improvement
+| &#9744; Wow!
+| &#9744; Getting There
+| &#9744; Needs Improvement
+
 
 | Data collection
 | I filled in the Google form each and every time I had a snack. If I was unable to complete the form at the time of the snack, I made a point of completing it as soon as possible. When I responded to the prompts, I gave accurate information (acquired by looking at the nutritional label). This snacking log perfectly accurately represents my snacking.
@@ -25,8 +26,8 @@
 
 
 | Part 3: My statistical question and its answer
-| I developed a compelling and interesting statistical question based on the data I collected. I clearly answered that question by presenting data visualizations, tables, photos and thoughtful written analysis.
-| The statistical question I chose is not fully answered by the data presented. I have put in some effort to answer the question with data visualizations, tables, photos and written analysis, but more detail is needed.
+| I developed a compelling and interesting statistical question based on the data I collected. I clearly answered that question by presenting plots, tables, photos and thoughtful written analysis.
+| The statistical question I chose is not fully answered by the data presented. I have put in some effort to answer the question with plots, tables, photos and written analysis, but more detail is needed.
 | Either my statistical question is simple and straightforward, and answering it did not require much critical analysis by me, or my statistical question was not adequately answered by my graphics and written analysis.
 
 

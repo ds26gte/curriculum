@@ -4,7 +4,7 @@ ds-intro                            ; DS
 
 ; PROGRAMMING 1 "USING functions to Make Images, Tables & Displays"
 simple-data-types                   ; programming
-contracts 					
+contracts-strings-images 					
 project-logo                        ; project
 contracts-tables	 				; programming
 contracts-visualizations	 		; programming
@@ -12,7 +12,8 @@ bar-and-pie-charts                  ; DS --> project-infographic
 
 ; STATISTICS 1
 dot-plots                           ; DS
-variability                         ; DS
+dot-plots-to-histograms             ; DS
+histograms-visualize				; DS
 data-collection                     ; DS --> project-design-a-survey         
 probability-inference               ; DS
 data-cycle                          ; DS --> project-snack-habits                
@@ -23,18 +24,18 @@ scatter-plots                       ; DS
 ; PROGRAMMING 2 "WRITING functions to Filter, Build, and Visualize"
 functions-make-life-easier          ; programming
 functions-examples-definitions      ; programming
-lookups                             ; programming 
-defining-table-functions       		; DS, programming
-filtering-and-building              ; DS, programming
+functions-with-lookups              ; programming 
+filtering-and-building              ; DS, programming --> project-stress-or-chill
+table-functions-dr 	 	     		; DS, programming
 advanced-visualizations             ; DS, programming --> project-beautiful-data     
 composing-table-operations          ; DS, programming
 
 ; STATISTICS 2
 grouped-samples                     ; DS, programming
 measures-of-center                  ; DS
-histograms-visualize                ; DS
 histograms-interpret                ; DS
 box-plots                           ; DS
+box-plots-interpret					; DS
 standard-deviation                  ; DS
 fitting-models                      ; DS, programming
 correlations                        ; DS
@@ -52,7 +53,7 @@ project-research-paper              ; project
 ; linear3-fitting-models                ; Math
 ; linear4-other-forms                   ; Math
 ; QUADRATIC MODELS
-; quadratic1-exploring-mpg          
+; quadratic1-exploring-batting-data          
 ; quadratic2-building-models            ; Math          
 ; quadratic3-fitting-models         ; Math
 ; quadratic4-other-forms                ; Math

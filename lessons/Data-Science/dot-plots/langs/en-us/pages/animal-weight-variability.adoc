@@ -1,0 +1,85 @@
+= Variability of Animals' Weights
+
+== Make Your Predictions
+
+@link-instructions{
+The staff at the shelter know there is a relationship between how much an animal weighs and how much it eats. They're about to order food for the month, and need some help analyzing the distribution of animals' weights!
+}
+
+@n Imagine a _typical_ animal from each of these four species. Rank the animals from lightest (1) to heaviest (4). +
+@hspace{2em} dog: @fitb{7em}{@ifsoln{4}} @hspace{2em} rabbit: @fitb{7em}{@ifsoln{2}}  @hspace{2em} cat: @fitb{7em}{@ifsoln{3}} @hspace{2em} tarantula: @fitb{7em}{@ifsoln{1}}
+
+@n Circle the species you expect to have the _greatest_ variability in weight: @hspace{2em} @ifsoln-choice{dog} @hspace{5em} rabbit @hspace{5em} cat @hspace{5em} tarantula
+
+@n Circle the species you expect to have the _least_ variability in weight: @hspace{3em} dog @hspace{5em} rabbit @hspace{5em} cat @hspace{5em} @ifsoln-choice{tarantula}
+
+@n The dot plots below display the weight distributions of dogs, rabbits, and tarantulas. Identify the species of each plot.
+
+[cols="<.>1a, <.>1a, 1a", grid="none", frame="none", stripes="none"]
+|===
+| species: @fitb{}{@ifsoln{rabbit}}
+| species: @fitb{}{@ifsoln{tarantula}}
+| species: @fitb{}{@ifsoln{dog}}
+
+| @image{../images/rabbit-dot-plot.png, 350}
+| @image{../images/tarantula-dot-plot.png, 350}
+| @image{../images/dog-dot-plot.png, 300}
+|===
+
+@n Explain how you made your decisions. @fitb{}{}
+
+@fitb{}{@ifsoln{Of the 3 species, dogs weigh the most and their weights have the most variability, while tarantulas weigh the least and also have the least variability.}}
+
+@fitb{}{}
+
+@fitb{}{}
+
+
+== Test Your Predictions Using Pyret
+
+@n Using the @starter-file{expanded-animals-sub-pops}, build a dot plot for each species. In your code, use the tables defined on lines 22-25. Use information from your dot plots to fill in the cells. You can hover your mouse over specific points on the dot plot for additional information on an individual animal. Some cells have been completed for you.
+
+
+[cols="1,2,2,2,2", options="header"]
+|===
+
+|
+| dogs
+| cats
+| rabbits
+| tarantula
+
+| Range/variability
+| 3-172 lbs
+| @ifsoln{0.8-13.4 lbs}
+| @ifsoln{1.5-5 lbs}
+| @ifsoln{0.03 - 0.375 lbs}
+
+| Gaps
+| 123-161 lbs
+| @ifsoln{11-13.4 lbs}
+| _No significant gaps_
+| _No significant gaps_
+
+| Outliers
+| Kujo (172 lbs) +
+Mr. PB (161 lbs)
+| @ifsoln{Hercules (13.4 lbs)}
+| _No significant outliers_
+| _No significant outliers_
+
+
+| Peak(s)
+| 72 pounds
+| @ifsoln{8.5 pounds}
+| @ifsoln{1.5, 3.3, 3.5, 4.2 pounds}
+| @ifsoln{0.2 pounds}
+
+|===
+
+
+@n Purchasing dog food would be easier if every dog ate roughly the _same amount of food!_ But is that true for dogs? What about rabbits, or _any_ of the four species in the @starter-file{expanded-animals-sub-pops}? Can you make any recommendations about quantity of food to purchase? @fitb{}{@ifsoln{Feeding each dog the same amount of food is definitely not a good idea.}}
+
+@fitb{}{@ifsoln{It's probably not a good idea to feed the cats, rabbits, or tarantulas the same amount of food, either.}}
+
+@fitb{}{@ifsoln{(Students may want to engage in some debate over the smaller three species.)}}

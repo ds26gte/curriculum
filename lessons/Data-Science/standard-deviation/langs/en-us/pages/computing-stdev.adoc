@@ -13,7 +13,7 @@ The *distribution* of these ages is shown in the @vocab{histogram} below:
 
 @n Describe the shape of this histogram. @fitb{}{@ifsoln{slight right skew}}
 
-@n What is the mean age of the cats in this dataset? @fitb{}{@ifsoln{3}}
+@n What is the mean age of the cats in this dataset? @fitb{}{@ifsoln{@math{30 \div 10 = 3}}}
 
 @n How many cats are 1 year old? 2 years old? Fill in the table below. The first column has been done for you.
 
@@ -22,8 +22,6 @@ The *distribution* of these ages is shown in the @vocab{histogram} below:
 | age   |1| 	2    | 	   3    |    4     |    5     |    6     | 	  7
 | frequency |4|@ifsoln{2}|@ifsoln{1}|@ifsoln{0}|@ifsoln{1}|@ifsoln{0}|@ifsoln{2}
 |===
-
-@vspace{1ex}
 
 @n *Draw a star to locate the mean on the x-axis of the histogram above*.
 
@@ -54,8 +52,6 @@ The *distribution* of these ages is shown in the @vocab{histogram} below:
 | squared distance 		| 4 | 4 | 4 | 4 | 1 | 1 | 0 | 4 | 16 | 16
 |===
 }
-
-@vspace{1ex}
 
 @n Add all the squared distances. What is their sum? @fitb{}{@ifsoln{54}}
 

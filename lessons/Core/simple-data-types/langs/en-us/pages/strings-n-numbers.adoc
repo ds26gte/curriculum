@@ -12,8 +12,6 @@ code { margin: 0 7px; }
 [.linkInstructions] 
 Make sure you’ve loaded @starter-file{editor}, clicked “Run”, and are working in the @vocab{Interactions Area} on the right. Hit Enter/return to evaluate expressions you test out.
 
-@vspace{1ex}
-
 == Strings
 
 _String values are always in quotes._
@@ -69,7 +67,7 @@ Try typing in  `4 + 2` and then  `4+2`  (without the spaces). What can you concl
 
 @fitb{}{@ifsoln{Operators require spaces.}}
 
-@n Type in the following expressions, *one at a time*:  `4 + 2 * 6` `(4 + 2) * 6` `4 + (2 * 6)`  What do you notice?
+@n Type in the following expressions, *one at a time*:  `4 + 2 * 6` @hspace{1em} `(4 + 2) * 6`@hspace{1em} `4 + (2 * 6)` @hspace{1em} What do you notice?
 
 @fitb{}{@ifsoln{If you use more than one operator you have to insert parentheses to tell the computer which operation to apply first.}}
 

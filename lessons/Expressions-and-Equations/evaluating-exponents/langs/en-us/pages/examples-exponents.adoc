@@ -5,6 +5,27 @@
 #content td {padding: 0rem 0px !important}
 #content table .autonum::after { content: ')'; }
 #content th { text-align: center !important; }
+
+/* Allow fitb's to get shorter than usual */
+.fitb{ min-width: 1em !important; }
+td .fitb{
+	padding-top: 0.2rem !important;
+	min-width: 1em;
+	border-bottom-color: lightgray;
+}
+
+/* Codeblocks in tables: remove vertical padding */
+td { padding: 0rem 0px !important }
+td .fitb{ padding-top: 0.2rem !important; min-width: 1em; }
+
+
+/* In Pyret contained in tables, force each example to one
+ * line, hide the 'examples', the ':' that follows, and 'end'
+ */
+.pyret .obeyspaces .editbox br { display: none; }
+.pyret .obeyspaces .cm-keyword:first-child,
+.pyret .obeyspaces .cm-keyword:first-child+.cm-builtin,
+.pyret .obeyspaces .cm-keyword:last-child { display: none; }
 </style>
 ++++
 
@@ -12,38 +33,31 @@
 
 @n Below, place a checkmark next to each of the equations that you *predict* will pass when you click "Run".
 
-@ifproglang{pyret}{
+[cols="1,24", frame="none", grid="none", stripes="none"]
+|===
+|
+|
+@ifproglang{pyret}{`examples:`}
 
-@hspace{2em} @fitb{2em}{} @hspace{1em}  `num-expt(5, 2)` *is* `(2 * (2 * (2 * (2 * 2))))`
+@fitb{2em}{} @show{(code '(EXAMPLE (expt 5 2) (* 2 (* 2 (* 2 (* 2 2))))))}
 
-@hspace{2em} @fitb{2em}{@ifsoln{x}} @hspace{1em} `num-expt(4, 6)` *is* `(((((4 * 4) * 4) * 4) * 4) * 4)`
+@fitb{2em}{@ifsoln{x}}
+@show{(code '(EXAMPLE (expt 4 6) (* 4 (* 4 (* 4 (* 4 (* 4 4)))))))}
 
-@hspace{2em}  @fitb{2em}{} @hspace{1em} `num-expt(2, 3)` *is* `(3 * 3)`
+@fitb{2em}{@ifsoln{x}}
+@show{(code '(EXAMPLE (expt 2 3) (* 3 3)))}
 
-@hspace{2em} @fitb{2em}{@ifsoln{x}} @hspace{1em} `num-expt(8, 3)` *is* `(8 * (8 * 8))`
+@fitb{2em}{}
+@show{(code '(EXAMPLE (expt 8 3) (* 8 (* 8 8))))}
 
-@hspace{2em} @fitb{2em}{} @hspace{1em} `num-expt(3, 5)` *is* `(3 + (3 + (3 + (3 + 3))))`
+@fitb{2em}{@ifsoln{x}}
+@show{(code '(EXAMPLE (expt 3 5) (+ 3 (+ 3 (+ 3 (+ 3 3))))))}
 
-@hspace{2em} @fitb{2em}{@ifsoln{x}} @hspace{1em} `num-expt(1, 4)` *is* `(((1 * 1) * 1) * 1)`
+@fitb{2em}{}
+@show{(code '(EXAMPLE (expt 1 4) (* 1 (* 1 (* 1 1)))))}
 
-}
-
-@ifproglang{wescheme}{
-
-@hspace{2em}  @fitb{1em}{} `(EXAMPLE (expt 5 2) (* 2 (* 2 (* 2 (* 2 (* 2))))))`
-
-@hspace{2em}  @fitb{2em}{@ifsoln{x}} `(EXAMPLE (expt 4 6) (* 4 (* 4 (* 4 (* 4 (* 4 (* 4)))))))`
-
-
-@hspace{2em}  @fitb{2em}{@ifsoln{x}} `(EXAMPLE (expt 2 3) (* 3 3))`
-
-@hspace{2em}  @fitb{2em}{} `(EXAMPLE (expt 8 3) (* 8 (* 8 (* 8))))`
-
-@hspace{2em}  @fitb{2em}{@ifsoln{x}} `(EXAMPLE (expt 3 5)(+ 3 (+ 3 (+ 3 (+ 3 (+ 3))))))`
-
-@hspace{2em} @fitb{2em}{} `(EXAMPLE (expt 1 4) (* 1 (* 1 (* 1 (* 1)))))`
-
-}
+@ifproglang{pyret}{`end`}
+|===
 
 @n Open the @starter-file{exponents} and click "Run." @ifproglang{pyret}{Select "Show Details" to the right of `examples-block-1`.} Using the information provided, fill in as many of the blanks as needed below to describe the examples that failed.
 
@@ -53,65 +67,42 @@
 
 @hspace{2em} Test # @fitb{3em}{@ifsoln{5}} failed because the left side was @fitb{3em}{@ifsoln{243}} and the right side was @fitb{3em}{@ifsoln{15}}.
 
-@n Edit each of the *failing* examples so that _all examples pass_ when you click "Run". Be sure to change *only* the @ifproglang{wescheme}{second part of the example} @ifproglang{pyret}{part of the example after the `is`}! Describe one of the changes you had to make. @fitb{}{}
+@n Changing *only* the @ifproglang{wescheme}{second part of the example} @ifproglang{pyret}{part of the example after the `is`}, fix the *failing* examples so that _all of them pass_.  Describe one of the changes. @fitb{}{}
 
 @fitb{}{}
 
 @fitb{}{}
-
-@vspace{1ex}
 
 == Does it equal 16?
 
-@n A teacher asked her students to make up expressions with exponents that evaluate to 16. She typed their expressions into @proglang as examples to test if they evaluate to 16. Below, place a checkmark next to each of the examples that you *predict* will pass when you click "Run".
+@n A teacher asked her students to make up expressions with exponents that evaluate to 16. She typed their expressions into @proglang as examples to test if they evaluate to 16. Below, place a checkmark next to each of the examples that you *predict* will pass.
 
-@ifproglang{pyret}{
-
-[.table1, cols="1,12,12", frame="none", grid="none", stripes="none"]
+[cols="1,12,12", frame="none", grid="none", stripes="none"]
 |===
+|
+| @ifproglang{pyret}{`examples:`}
+| @ifproglang{pyret}{`examples:`}
 
-|| @fitb{1em}{} @hspace{1em} `num-expt(2, 4)` *is* `16`
+|
+| @fitb{2em}{} @show{(code '(EXAMPLE (expt 2 4) 16))}
+| @fitb{2em}{@ifsoln{x}} @show{(code '(EXAMPLE (* 2 (* 2 (expt 2 2))) 16))}
 
-| @fitb{2em}{@ifsoln{x}} @hspace{1em} `2 * 2 * num-expt(2, 2)`  *is* `16`
+|
+| @fitb{2em}{@ifsoln{x}} @show{(code '(EXAMPLE (+ (expt 2 3) 10) 16))}
+| @fitb{2em}{} @show{(code '(EXAMPLE (* (expt 4 2) 2) 16))}
 
+|
+| @fitb{2em}{} @show{(code '(EXAMPLE (* 4 (expt 1 4)) 16))}
+| @fitb{2em}{} @show{(code '(EXAMPLE(/ (/ (expt 4 3) 2) 2) 16))}
 
-|| @fitb{2em}{@ifsoln{x}} @hspace{1em} `num-expt(2, 3) + 10` *is* `16`
+|
+| @fitb{2em}{}  @show{(code '(EXAMPLE (* 2 (expt 2 3)) 16))}
+| @fitb{2em}{@ifsoln{x}}  @show{(code '(EXAMPLE (/ (/ (expt 4 3) 2) 2) 16))}
 
-| @fitb{2em}{} @hspace{1em} `num-expt(4, 2) * 2`  *is* `16`
-
-|| @fitb{2em}{} @hspace{1em} `4 * num-expt(1, 4)`  *is* `16`
-
-| @fitb{2em}{} @hspace{1em}  `num-expt(4, 3) / 2 / 2`  *is* `16`
-
-|| @fitb{2em}{} @hspace{1em}  `2 * num-expt(2, 3)` *is* `16`
-
-| @fitb{2em}{@ifsoln{x}} @hspace{1em} `num-expt(4, 3) / 2 / 2`  *is* `16`
+|
+| @ifproglang{pyret}{`end`}
+| @ifproglang{pyret}{`end`}
 |===
-
-}
-
-@ifproglang{wescheme}{
-
-[.table1, cols="1,12,12", frame="none", grid="none", stripes="none"]
-|===
-
-|| @fitb{1em}{} `(EXAMPLE (expt 2 4) 16)`
-
-| @fitb{2em}{@ifsoln{x}} `(EXAMPLE (* 2 (* 2 (* (expt 2 2)))) 16)`
-
-|| @fitb{2em}{@ifsoln{x}} `(EXAMPLE (+ (expt 2 3) 10) 16)`
-
-| @fitb{2em}{} `(EXAMPLE (* (expt 4 2) 2) 16)`
-
-|| @fitb{2em}{} `(EXAMPLE (* 4 (expt 1 4)) 16)`
-
-| @fitb{2em}{} `(EXAMPLE(/ (/ (expt 4 3) 2) 2) 16)`
-
-|| @fitb{2em}{}  `(EXAMPLE (* 2 (expt 2 3)) 16)`
-
-| @fitb{2em}{@ifsoln{x}}  `(EXAMPLE (/ (/ (expt 4 3) 2) 2) 16)`
-|===
-}
 
 @n Open the @starter-file{is-it-16} and click "Run". @ifproglang{pyret}{Select "Show Details" to the right of `examples-block-1`.} Which tests failed? @fitb{}{@ifsoln{2, 3, and 6.}}
 

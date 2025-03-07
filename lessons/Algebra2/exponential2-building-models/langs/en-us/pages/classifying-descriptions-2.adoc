@@ -3,8 +3,6 @@
 Decide whether each situation is best described by a linear, quadratic, or exponential function. +
 *If the function is exponential:* What is the growth factor. Is it doubling (factor of 2)? Tripling (factor of 3)? Factor of 5? 10?
 
-@vspace{2ex}
-
 == High Fives
 *Two students started a club. At every meeting, students in attendance must high-five each of the other students. Club membership has been growing steadily by one student each meeting.*
 
@@ -13,8 +11,6 @@ Decide whether each situation is best described by a linear, quadratic, or expon
 @n When the 2 students started the club (x=0), how many high-fives happened? @fitb{8em}{@ifsoln{1}}
 
 @n How many high-fives happen at the subsequent meetings...
-
-@vspace{1ex}
 
 [cols="^.>1a,^.>1a,^.>1a,^.>1a", options="header"]
 |===
@@ -41,7 +37,7 @@ exponential&#9744;
 @indented{
 Fill in the coefficients to write a function that shows the how many high-fives happen for a given number of students:
 
-@math{f(x) = } @fitbruby{8em}{}{initial value @math{a}} @fitbruby{8em}{}{growth factor @math{b}} ^x^ @hspace{2em} + @hspace{2em} @fitbruby{8em}{}{horizontal asymptote @math{k}}
+@math{f(x) = } @fitbruby{8em}{}{initial value @math{a}} @math{\times} @fitbruby{8em}{}{growth factor @math{b}} ^x^ @hspace{2em} + @hspace{2em} @fitbruby{8em}{}{horizontal asymptote @math{k}}
 
 @vspace{1ex}
 
@@ -65,7 +61,7 @@ x=1
 | (their friends share) +
 x=2
 | x=3
-| x =4
+| x=4
 
 | @ifsoln{@math{10 + 1 =} +
 11}				
@@ -85,7 +81,7 @@ quadratic &#9744; @hspace{3em}
 @indented{
 Fill in the coefficients to write a function that shows how many times the meme has been shared after a given number of "share cycles":
 
-@math{f(x) = } @fitbruby{8em}{@ifsoln{1}}{initial value @math{a}} @fitbruby{8em}{@ifsoln{11}}{growth factor @math{b}} ^x^ @hspace{2em} + @hspace{2em} @fitbruby{8em}{}{horizontal asymptote @math{k}}
+@math{f(x) = } @fitbruby{8em}{@ifsoln{1}}{initial value @math{a}} @math{\times} @fitbruby{8em}{@ifsoln{(1 + 10)}}{growth factor @math{b}} ^x^ @hspace{2em} + @hspace{2em} @fitbruby{8em}{}{horizontal asymptote @math{k}}
 
 @vspace{1ex}
 
