@@ -41,32 +41,32 @@ the
 the
 the
 the
-the 
-the 
-the 
-the 
-the 
-the 
-the 
-the 
-the 
-the 
-the 
-the 
-the 
-the 
-the 
-the 
-the 
-the 
-the 
-the 
-the 
-the 
-the 
-the 
-the 
-the 
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
+the
 
 @ifproglang{wescheme}{lkajdf}
 
@@ -100,7 +100,7 @@ This is a common misconception (@citation{groth-bergner-2006}).
 @opt-material-links
 
 | Supplemental Resources
-| 
+|
 
 | Preparation
 | @preparation{
@@ -113,12 +113,11 @@ This is a common misconception (@citation{groth-bergner-2006}).
 
 |===
 
-
-== Graphing logarithmic models __f(x) = a log~b~ x + c__ 
+== Graphing logarithmic models __f(x) = a log~b~ x + c__
 
 @objective{expressions-exponents}
 @objective{develop-statistical-question}
-Each section should declare its objectives. These will automatically be compiled in the order they appear in lesson plan the materials table. The objectives get defined in various files found in the `shared/langs/en-us/learningObjectives`. 
+Each section should declare its objectives. These will automatically be compiled in the order they appear in lesson plan the materials table. The objectives get defined in various files found in the `shared/langs/en-us/learningObjectives`.
 
 Norms we have agreed upon for these objectives include the following:
 - learning objective is the right size for us to imagine the assessment that would let us know that a student has met the objective
@@ -150,14 +149,11 @@ Discuss as a group.
 Ask students to take a minute to see what they *wonder*.
 }
 
-
 @lesson-point{
 Use `lesson-point` to callout a short-but-important points.
 }
 
-
 @show{(code '(string-repeat))}
-
 
 @show{(code '(define s 3))}
 
@@ -171,7 +167,7 @@ Use `lesson-point` to callout a short-but-important points.
 
 @printable-exercise{pageA1.adoc} _These pages will be included in the workbook if the lesson is part of a pathway. Because our lessons are mix and match, we do not talk about them as workbook pages. And we also generally try to avoid use of the word worksheet._
 
-@online-exercise{https://www.wescheme.org/view?publicId=EA6R0E97nV, "A link to a required online exercise (CPO - WeScheme - Desmos)"} 
+@online-exercise{https://www.wescheme.org/view?publicId=EA6R0E97nV, "A link to a required online exercise (CPO - WeScheme - Desmos)"}
 
 @opt-printable-exercise{exerA2.adoc, "Custom link text for an optional page, usually not in the workbook"}
 
@@ -185,9 +181,9 @@ Use the `lesson-instruction` class for prose aimed directly at telling students 
 @A{answers - will appear in lesson plans, but only be visible in speaker notes on slides}
 
 @Q{Do you think age is the only factor that determines how long it takes for an animal to get adopted?}
-@A{The goal here is to have an open discussion and draw students in. Allow students to share their opinions freely. For example: 
-*** No! People like animals that are cute and friendly. 
-*** Some dog breeds are probably more popular than others. 
+@A{The goal here is to have an open discussion and draw students in. Allow students to share their opinions freely. For example:
+*** No! People like animals that are cute and friendly.
+*** Some dog breeds are probably more popular than others.
 *** Animals that are healthy might get adopted faster.
 }
 }
@@ -205,7 +201,6 @@ What are the most likely places kids will get stuck? Why? How do we help them?
 
 @strategy{Strategies for English Language Learners}{
 
-
 MLR 8 -- Discussion Supports: As students discuss the guiding
 questions, rephrase responses as questions and encourage
 precision in the words being used to reinforce the meanings
@@ -216,31 +211,30 @@ behind some of the programming-specific language.
 
 kateogy
 
-color color 
-color color 
-color color 
-color color 
-color color 
-color color 
-color color 
-color color 
-color color 
-color color 
-color color 
-color color 
-color color 
-color color 
-color color 
-color color 
-color color 
-color color 
-color color 
-cxlor color 
-color color 
-color color 
+color color
+color color
+color color
+color color
+color color
+color color
+color color
+color color
+color color
+color color
+color color
+color color
+color color
+color color
+color color
+color color
+color color
+color color
+color color
+cxlor color
+color color
+color color
 
 == Additional Exercises
 
 - @opt-printable-exercise{exerA3.adoc, "Sample design recipe, etc"}
 - @online-exercise{https://www.wescheme.org/view?publicId=EA6R0E97nV, "A link to an optional online exercise (CPO, WeScheme, Desmos, etc"}
-
